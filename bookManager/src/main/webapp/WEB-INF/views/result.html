@@ -1,0 +1,8 @@
+#parse("/header.html")
+result welcome in $!{title};
+
+#foreach($book in $books)
+<p>$book.id   $book.name    $book.price</p><br>
+#end
+</body>
+</html>
