@@ -11,7 +11,6 @@ import com.zj.book.service.BookService;
 @Service
 public class BookServiceImpl implements BookService {
 
-	@Override
 	public List<Book> findBooks() {
 		List<Book> books = new ArrayList<Book>();
 		
