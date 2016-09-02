@@ -70,12 +70,12 @@ public class Seckill {
 		this.endTime = endTime;
 	}
 
-	public String getCreateTime() {
+	/*public String getCreateTime() {
 		return DateUtil.formatByDate(createTime);
-	}
-	/*public Date getCreateTime() {
-		return createTime;
 	}*/
+	public Date getCreateTime() {
+		return createTime;
+	}
 
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;

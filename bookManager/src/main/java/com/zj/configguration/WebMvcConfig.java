@@ -51,6 +51,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter{
 		velocityView.setRequestContextAttribute("rc");
 		velocityView.setDateToolAttribute("dateTool");
 		velocityView.setNumberToolAttribute("numberTool");
+		//velocityView.setToolboxConfigLocation("WEB-INF/tools.xml”");
 		velocityView.setContentType(CONTENT_TYPE);
 		return velocityView;
 	}

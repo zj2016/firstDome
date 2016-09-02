@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.zj.book.bean.form.Role;
 import com.zj.book.bean.form.RoleList;
+import com.zj.book.cache.Cache;
 import com.zj.book.service.BookService;
 
 @Controller
@@ -22,9 +23,13 @@ public class BookController {
 	@Autowired
 	private BookService bookService;
 	
+	@Autowired
+	private Cache cache;
+	
 	@RequestMapping("/getbooks/{title}")
 	public String getBooks(@PathVariable("title") String title, ModelMap map){
 		map.addAttribute("title", title);
+		cache.put("title", title);
 		map.addAttribute("books", bookService.findBooks());
 		return "result";
 	}

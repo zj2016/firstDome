@@ -1,12 +1,6 @@
 #parse("/header.html")
 result welcome in $!{title};
 
-#foreach($book in $books)
-<p>$book.id   $book.name    $book.price</p><br>
-#end
-
-<hr>
-
 <table border="1px">
 	<thead>
 		<tr>
@@ -26,47 +20,12 @@ result welcome in $!{title};
 			<td>$seckill.number</td>
 			<td>$seckill.startTime</td>
 			<td>$seckill.endTime</td>
-			<td>$seckill.createTime</td>
+			<td>$date.formatByDate($seckill.createTime)</td>
 		</tr>
 		#end
 	</tbody>
 </table>
 
 <hr>
-
-<form action="/book/boxList" method="POST">
-
-	<label>权限</label>
-        <label class="checkbox-inline">
-            <input name="roles[0]" class="rights" type="checkbox" value="1">用户管理
-        </label>
-        <label class="checkbox-inline">
-            <input name="roles[1]" class="rights" type="checkbox" value="2">首页管理
-        </label>
-        <label class="checkbox-inline">
-            <input name="roles[2]" class="rights" type="checkbox" value="4">专题管理
-        </label>
-        <label class="checkbox-inline">
-            <input  name="roles[3]" class="rights" type="checkbox" value="8">产品管理
-        </label>
-        <input type="submit" value="List提交">
-</form>
-<form action="/book/boxMap" method="POST">
-
-	<label>权限</label>
-        <label class="checkbox-inline">
-            <input name="role['c1']" class="rights" type="checkbox" value="1">用户管理
-        </label>
-        <label class="checkbox-inline">
-            <input name="role['c2']" class="rights" type="checkbox" value="2">首页管理
-        </label>
-        <label class="checkbox-inline">
-            <input name="role['c3']" class="rights" type="checkbox" value="4">专题管理
-        </label>
-        <label class="checkbox-inline">
-            <input  name="role['c4']" class="rights" type="checkbox" value="8">产品管理
-        </label>
-        <input type="submit" value="Map提交">
-</form>
 </body>
 </html>

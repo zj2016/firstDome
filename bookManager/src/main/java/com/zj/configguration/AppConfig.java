@@ -16,6 +16,9 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.zj.book.cache.Cache;
+import com.zj.book.cache.impl.RedisCache;
+
 @Configuration
 @ComponentScan(basePackages = {"com.zj.book.service.impl"})
 @EnableTransactionManagement
@@ -29,6 +32,15 @@ public class AppConfig implements EnvironmentAware{
 		this.environment = arg0;
 	}
 	
+	//配置redis
+	@Bean
+	public Cache getRedis(){
+		Cache cache = new RedisCache();
+		System.out.println(environment.getProperty("redis.url") + "  " + environment.getProperty("redis.database"));
+		cache.init(environment.getProperty("redis.url"), Integer.valueOf(environment.getProperty("redis.database")));
+		
+		return cache;
+	}
 	
 	//配置数据库
 	@Bean
